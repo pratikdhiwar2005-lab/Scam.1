@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Birthday Priyanka ❤️</title>
+  <title>Happy Birthday Lovey 😘💞</title>
+
   <style>
     body {
       margin: 0;
@@ -42,6 +43,31 @@
       position: absolute;
     }
 
+    .chat {
+      text-align: left;
+      max-width: 300px;
+      margin: auto;
+      background: #111;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .msg {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 8px;
+      max-width: 80%;
+    }
+
+    .me {
+      background: green;
+      margin-left: auto;
+    }
+
+    .her {
+      background: #333;
+    }
+
     .heart {
       position: absolute;
       color: red;
@@ -57,23 +83,22 @@
 
 <body>
 
-<h1>🎂 Happy Birthday Priyanka ❤️</h1>
+<h1>🎂 Happy Birthday Lovey 😘💞</h1>
 <p>Click below for your surprise 🎁</p>
 
 <button onclick="start()">Start 💖</button>
-<button onclick="playSong()">Play Our Song 🎵</button>
 
 <script>
 
-// 🎵 KHAT SONG BUTTON
-function playSong() {
-  window.open("https://www.youtube.com/watch?v=1cX9p5c8Vx8", "_blank");
-}
-
-// START EXPERIENCE
 function start() {
   document.body.innerHTML = `
+
     <h1>Priyanka ❤️</h1>
+
+    <!-- 🎵 BACKGROUND SONG -->
+    <audio autoplay loop>
+      <source src="song.mp3" type="audio/mpeg">
+    </audio>
 
     <img id="slideshow" src="photo1.jpg">
 
@@ -83,11 +108,19 @@ function start() {
       <source src="video.mp4" type="video/mp4">
     </video>
 
-    <!-- Hidden Song Player -->
-    <iframe width="0" height="0"
-    src="https://www.youtube.com/embed/1cX9p5c8Vx8?autoplay=1&loop=1&playlist=1cX9p5c8Vx8"
-    frameborder="0" allow="autoplay">
-    </iframe>
+    <h2>Our Story 💬</h2>
+
+    <div class="chat">
+      <div class="msg her">Hi 🙂</div>
+      <div class="msg me">Hello 😍</div>
+      <div class="msg her">What are you doing?</div>
+      <div class="msg me">Thinking about you ❤️</div>
+      <div class="msg her">Pagal 😜</div>
+      <div class="msg me">Only for you 💖</div>
+      <div class="msg me">Today is special 🎂</div>
+      <div class="msg her">Why? 🤔</div>
+      <div class="msg me">Because it's your birthday Lovey 😘💞</div>
+    </div>
 
     <p>Do you love me? 😏</p>
 
@@ -99,8 +132,8 @@ function start() {
   startSlideshow();
 }
 
-// 💌 TYPING MESSAGE
-let text = "On your special day... you are my happiness, my love, my everything 💕";
+// 💌 MESSAGE
+let text = "You are my happiness, my love, my everything 💕";
 let i = 0;
 
 function typeWriter() {
@@ -126,32 +159,23 @@ function startSlideshow() {
   }, 2000);
 }
 
-// 😏 YES CLICK
+// 😏 YES
 function yesClicked() {
   document.body.innerHTML = `
     <h1>I Love You Priyanka ❤️</h1>
-    <p>Will you be mine forever? 💍</p>
-    <button onclick="finalYes()">Yes 💖</button>
-  `;
-}
-
-// 💍 FINAL SCREEN
-function finalYes() {
-  document.body.innerHTML = `
-    <h1>Forever Starts Now ❤️</h1>
-    <p>Happy Birthday my love 🎂💕</p>
+    <p>Forever starts now 💍</p>
     <img src="photo2.jpg">
   `;
 }
 
-// 😂 RUNNING NO BUTTON
+// 😂 RUN BUTTON
 function moveNo() {
   let btn = document.getElementById("no");
   btn.style.top = Math.random() * window.innerHeight + "px";
   btn.style.left = Math.random() * window.innerWidth + "px";
 }
 
-// ❤️ FLOATING HEARTS
+// ❤️ HEARTS
 setInterval(() => {
   let heart = document.createElement("div");
   heart.innerHTML = "❤️";
