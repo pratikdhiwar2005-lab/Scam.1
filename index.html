@@ -1,72 +1,157 @@
-<!-- update -->
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For You ❤️</title>
+  <title>Happy Birthday Priyanka ❤️</title>
   <style>
     body {
       margin: 0;
-      overflow: hidden;
       background: black;
       color: white;
       text-align: center;
       font-family: Arial;
+      overflow: hidden;
     }
 
-    h1 {
-      margin-top: 20%;
-      font-size: 40px;
-      color: pink;
+    h1 { color: pink; }
+
+    img {
+      width: 220px;
+      border-radius: 15px;
+      margin: 10px;
     }
 
-    p {
-      font-size: 20px;
+    video {
+      width: 300px;
+      border-radius: 15px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #yes { background: pink; }
+
+    #no {
+      background: grey;
+      position: absolute;
     }
 
     .heart {
       position: absolute;
       color: red;
-      font-size: 20px;
       animation: float 5s linear infinite;
     }
 
     @keyframes float {
-      from {
-        transform: translateY(100vh);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background: pink;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
+      from { transform: translateY(100vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
     }
   </style>
 </head>
 
 <body>
 
-<h1>Hi Priyanka ❤️</h1>
-<p>Until I found you... my life changed 💕</p>
-<p>I love you Baby 😘</p>
+<h1>🎂 Happy Birthday Priyanka ❤️</h1>
+<p>Click below for your surprise 🎁</p>
 
-<button onclick="showMessage()">Click Me 💌</button>
+<button onclick="start()">Start 💖</button>
+<button onclick="playSong()">Play Our Song 🎵</button>
 
 <script>
-function showMessage() {
-  alert("You are my everything ❤️");
+
+// 🎵 KHAT SONG BUTTON
+function playSong() {
+  window.open("https://www.youtube.com/watch?v=1cX9p5c8Vx8", "_blank");
 }
 
-// Floating hearts
+// START EXPERIENCE
+function start() {
+  document.body.innerHTML = `
+    <h1>Priyanka ❤️</h1>
+
+    <img id="slideshow" src="photo1.jpg">
+
+    <p id="message"></p>
+
+    <video controls>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Hidden Song Player -->
+    <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/1cX9p5c8Vx8?autoplay=1&loop=1&playlist=1cX9p5c8Vx8"
+    frameborder="0" allow="autoplay">
+    </iframe>
+
+    <p>Do you love me? 😏</p>
+
+    <button id="yes" onclick="yesClicked()">Yes 💖</button>
+    <button id="no" onmouseover="moveNo()">No 😜</button>
+  `;
+
+  typeWriter();
+  startSlideshow();
+}
+
+// 💌 TYPING MESSAGE
+let text = "On your special day... you are my happiness, my love, my everything 💕";
+let i = 0;
+
+function typeWriter() {
+  let msg = document.getElementById("message");
+  function typing() {
+    if (i < text.length) {
+      msg.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 50);
+    }
+  }
+  typing();
+}
+
+// 📸 SLIDESHOW
+function startSlideshow() {
+  let images = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % images.length;
+    document.getElementById("slideshow").src = images[index];
+  }, 2000);
+}
+
+// 😏 YES CLICK
+function yesClicked() {
+  document.body.innerHTML = `
+    <h1>I Love You Priyanka ❤️</h1>
+    <p>Will you be mine forever? 💍</p>
+    <button onclick="finalYes()">Yes 💖</button>
+  `;
+}
+
+// 💍 FINAL SCREEN
+function finalYes() {
+  document.body.innerHTML = `
+    <h1>Forever Starts Now ❤️</h1>
+    <p>Happy Birthday my love 🎂💕</p>
+    <img src="photo2.jpg">
+  `;
+}
+
+// 😂 RUNNING NO BUTTON
+function moveNo() {
+  let btn = document.getElementById("no");
+  btn.style.top = Math.random() * window.innerHeight + "px";
+  btn.style.left = Math.random() * window.innerWidth + "px";
+}
+
+// ❤️ FLOATING HEARTS
 setInterval(() => {
   let heart = document.createElement("div");
   heart.innerHTML = "❤️";
@@ -77,10 +162,9 @@ setInterval(() => {
 
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+  setTimeout(() => heart.remove(), 5000);
 }, 300);
+
 </script>
 
 </body>
