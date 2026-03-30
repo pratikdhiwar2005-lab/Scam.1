@@ -159,23 +159,26 @@ function startSlideshow() {
   }, 2000);
 }
 
-// 😏 YES
+// 💖 FINAL YES SCREEN
 function yesClicked() {
   document.body.innerHTML = `
     <h1>I Love You Priyanka ❤️</h1>
-    <p>Forever starts now 💍</p>
+    <p>Thank you for loving me 😘</p>
+    <p>Enjoy your special day my Lovey 🎂💞</p>
+    <p>You mean everything to me 💖</p>
+    <p>Forever with you… no matter what 💍</p>
     <img src="photo2.jpg">
   `;
 }
 
-// 😂 RUN BUTTON
+// 😂 RUNNING NO BUTTON
 function moveNo() {
   let btn = document.getElementById("no");
   btn.style.top = Math.random() * window.innerHeight + "px";
   btn.style.left = Math.random() * window.innerWidth + "px";
 }
 
-// ❤️ HEARTS
+// ❤️ FLOATING HEARTS
 setInterval(() => {
   let heart = document.createElement("div");
   heart.innerHTML = "❤️";
